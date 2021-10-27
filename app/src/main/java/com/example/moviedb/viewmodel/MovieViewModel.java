@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.moviedb.model.Movies;
 import com.example.moviedb.model.NowPlaying;
+import com.example.moviedb.model.Upcoming;
 import com.example.moviedb.repositories.MovieRepository;
 
 import java.util.Objects;
@@ -47,5 +48,16 @@ public class MovieViewModel extends AndroidViewModel {
 
     //==End of viewmodel get Now Playing
 
+    //==Start of viewmodel get Upcoming
+    private MutableLiveData<Upcoming> resultGetUpComing = new MutableLiveData<>();
+    public void getUpComing(){
+        resultGetUpComing = repository.getUpcomingData();
+    }
+    public LiveData<Upcoming> getResultGetUpComing(){
+        return resultGetUpComing;
+    }
+
+
+    //==End of viewmodel get Upcoming
 
 }

@@ -3,12 +3,21 @@ package com.example.moviedb.view.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.moviedb.R;
+import com.example.moviedb.adapter.NowPlaying_adapter;
+import com.example.moviedb.adapter.UpComing_adapter;
+import com.example.moviedb.model.Movies;
+import com.example.moviedb.model.Upcoming;
+import com.example.moviedb.viewmodel.MovieViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,10 +66,29 @@ public class UpcomingFragment extends Fragment {
         }
     }
 
+    private RecyclerView rv_upcoming_fragment;
+    private MovieViewModel view_model;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_upcoming, container, false);
+        View view = inflater.inflate(R.layout.fragment_upcoming, container, false);
+        view_model = new ViewModelProvider(getActivity()).get(MovieViewModel.class);
+        rv_upcoming_fragment = view.findViewById(R.id.rv_upcoming_fragment);
+        view_model.getUpComing();
+        view_model.getResultGetUpComing().observe(getActivity(), showUpComing);
+
+        return view;
     }
+
+    private Observer<Upcoming> showUpComing = new Observer<Upcoming>() {
+        @Override
+        public void onChanged(Upcoming upcoming) {
+            rv_upcoming_fragment.setLayoutManager(new LinearLayoutManager(getActivity()));
+            UpComing_adapter adapter = new UpComing_adapter(getActivity());
+            adapter.setListUpComing(upcoming.getResults());
+            rv_upcoming_fragment.setAdapter(adapter);
+        }
+    };
 }
