@@ -34,7 +34,7 @@ public class UpComing_adapter extends RecyclerView.Adapter<UpComing_adapter.UpCo
     @NonNull
     @Override
     public UpComingHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view  = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_now_playing, parent, false);
+        View view  = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_up_coming, parent, false);
         return new UpComing_adapter.UpComingHolder(view);
     }
 

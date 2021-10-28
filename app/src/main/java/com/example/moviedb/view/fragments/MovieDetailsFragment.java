@@ -1,5 +1,6 @@
 package com.example.moviedb.view.fragments;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -67,18 +68,18 @@ public class MovieDetailsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        dialog = ProgressDialog.show(getActivity(),"", "Loading.. ", true);
+        dialog.show();
+
     }
 
     private MovieViewModel view_model;
-    private TextView lbl_movie_id, lbl_movie_description,lbl_movie_genre,
+    private TextView lbl_movie_description,lbl_movie_genre,
             lbl_movie_rate, lbl_movie_title,lbl_movie_date;
     private ImageView lbl_movie_poster, lbl_movie_backdrop;
     private String genres = "";
     private RecyclerView rv_logo;
+    private ProgressDialog dialog;
 
 
     @Override
@@ -86,10 +87,6 @@ public class MovieDetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_movie_details, container, false);
-
-
-
-
 
         lbl_movie_description = view.findViewById(R.id.fragment_movie_detail_description);
         lbl_movie_title = view.findViewById(R.id.fragment_movie_detail_title);
@@ -105,10 +102,6 @@ public class MovieDetailsFragment extends Fragment {
         view_model.getResultGetMovieById().observe(getActivity(), moviedetail);
 
 
-
-
-
-        RecyclerView.LayoutManager logo = new GridLayoutManager(getActivity(), 1, RecyclerView.HORIZONTAL, false);
         return view;
     }
 
@@ -126,7 +119,7 @@ public class MovieDetailsFragment extends Fragment {
             lbl_movie_date.setText(date);
             lbl_movie_rate.setText(vote);
             String img_path = Const.IMG_URL + movies.getPoster_path().toString();
-            String img_back = Const.IMG_URL + movies.getBackdrop_path().toString();
+            String img_back = Const.IMG_URL + movies.getBackdrop_path();
             Glide.with(MovieDetailsFragment.this).load(img_path).into(lbl_movie_poster);
             Glide.with(MovieDetailsFragment.this).load(img_back).into(lbl_movie_backdrop);
             for (int i = 0; i <movies.getGenres().size(); i++){
@@ -141,6 +134,7 @@ public class MovieDetailsFragment extends Fragment {
             Company_adapter adapter = new Company_adapter(getActivity());
             adapter.setCompany(movies.getProduction_companies());
             rv_logo.setAdapter(adapter);
+            dialog.dismiss();
         }
     };
 }

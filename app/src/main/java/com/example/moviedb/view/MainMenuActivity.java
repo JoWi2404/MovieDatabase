@@ -3,7 +3,6 @@ package com.example.moviedb.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -30,7 +29,7 @@ public class MainMenuActivity extends AppCompatActivity {
         navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_fragment_main_menu);
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.
-                Builder(R.id.nowPlayingFragment,R.id.upComingFragment).build();
+                Builder(R.id.nowPlayingFragment,R.id.upComingFragment,R.id.popularFragment).build();
 
         NavigationUI.setupActionBarWithNavController(MainMenuActivity.this,
                 navHostFragment.getNavController(), appBarConfiguration);

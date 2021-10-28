@@ -6,6 +6,7 @@
         <entry key="..\:/Users/MSI-PC/AndroidStudioProjects/MovieDB/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/MSI-PC/AndroidStudioProjects/MovieDB/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/MSI-PC/AndroidStudioProjects/MovieDB/app/src/main/res/drawable/ic_now_playing_24.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/MSI-PC/AndroidStudioProjects/MovieDB/app/src/main/res/drawable/ic_popular_24.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/MSI-PC/AndroidStudioProjects/MovieDB/app/src/main/res/drawable/ic_up_coming_24.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/MSI-PC/AndroidStudioProjects/MovieDB/app/src/main/res/drawable/menu_item_selector.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/MSI-PC/AndroidStudioProjects/MovieDB/app/src/main/res/layout/activity_main.xml" value="0.22146739130434784" />
@@ -14,9 +15,11 @@
         <entry key="..\:/Users/MSI-PC/AndroidStudioProjects/MovieDB/app/src/main/res/layout/activity_now_playing.xml" value="0.20244565217391305" />
         <entry key="..\:/Users/MSI-PC/AndroidStudioProjects/MovieDB/app/src/main/res/layout/card_company.xml" value="0.264" />
         <entry key="..\:/Users/MSI-PC/AndroidStudioProjects/MovieDB/app/src/main/res/layout/card_now_playing.xml" value="0.264" />
+        <entry key="..\:/Users/MSI-PC/AndroidStudioProjects/MovieDB/app/src/main/res/layout/card_popular.xml" value="0.176" />
         <entry key="..\:/Users/MSI-PC/AndroidStudioProjects/MovieDB/app/src/main/res/layout/card_up_coming.xml" value="0.264" />
         <entry key="..\:/Users/MSI-PC/AndroidStudioProjects/MovieDB/app/src/main/res/layout/fragment_movie_details.xml" value="0.264" />
         <entry key="..\:/Users/MSI-PC/AndroidStudioProjects/MovieDB/app/src/main/res/layout/fragment_now_playing.xml" value="0.2" />
+        <entry key="..\:/Users/MSI-PC/AndroidStudioProjects/MovieDB/app/src/main/res/layout/fragment_popular.xml" value="0.19293478260869565" />
         <entry key="..\:/Users/MSI-PC/AndroidStudioProjects/MovieDB/app/src/main/res/layout/fragment_upcoming.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/MSI-PC/AndroidStudioProjects/MovieDB/app/src/main/res/menu/main_menu.xml" value="0.25" />
       </map>

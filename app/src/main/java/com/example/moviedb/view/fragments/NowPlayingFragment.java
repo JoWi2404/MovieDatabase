@@ -93,12 +93,7 @@ public class NowPlayingFragment extends Fragment {
             adapter.setListNowPlaying(nowPlaying.getResults());
             rv_now_playing.setAdapter(adapter);
 
-//            ItemClickSupport.addTo(rv_now_playing).setOnItemLongClickListener(new ItemClickSupport.OnItemLongClickListener() {
-//                @Override
-//                public boolean onItemLongClicked(RecyclerView recyclerView, int position, View v) {
-//                    return false;
-//                }
-//            });
+
             ItemClickSupport.addTo(rv_now_playing).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
                 @Override
                 public void onItemClicked(RecyclerView recyclerView, int position, View v) {
