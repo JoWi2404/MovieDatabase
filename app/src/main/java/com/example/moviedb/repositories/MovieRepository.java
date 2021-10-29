@@ -96,7 +96,6 @@ public class MovieRepository {
 
             }
 
-
         });
 
         return result;

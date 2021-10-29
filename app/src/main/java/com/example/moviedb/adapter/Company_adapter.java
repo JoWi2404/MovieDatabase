@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.example.moviedb.R;
 import com.example.moviedb.helper.Const;
 import com.example.moviedb.model.Movies;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -54,7 +55,10 @@ public class Company_adapter extends RecyclerView.Adapter<Company_adapter.Compan
         holder.logo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, companies.getName(), Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(context, companies.getName(), Toast.LENGTH_SHORT).show();
+                Snackbar sb = Snackbar.make(view, companies.getName(), Snackbar.LENGTH_SHORT);
+                sb.setAnchorView(R.id.bottom_nav_main_menu);
+                sb.show();
             }
         });
     }

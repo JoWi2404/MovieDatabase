@@ -36,5 +36,4 @@ public interface ApiEndPoint {
 
     );
 
-
 }

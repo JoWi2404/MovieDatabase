@@ -75,7 +75,8 @@ public class MovieDetailsFragment extends Fragment {
 
     private MovieViewModel view_model;
     private TextView lbl_movie_description,lbl_movie_genre,
-            lbl_movie_rate, lbl_movie_title,lbl_movie_date;
+            lbl_movie_rate, lbl_movie_title,lbl_movie_date,lbl_movie_tagline,
+            lbl_movie_vote,lbl_movie_popularity;
     private ImageView lbl_movie_poster, lbl_movie_backdrop;
     private String genres = "";
     private RecyclerView rv_logo;
@@ -95,6 +96,9 @@ public class MovieDetailsFragment extends Fragment {
         lbl_movie_poster = view.findViewById(R.id.fragment_movie_detail_image);
         lbl_movie_backdrop = view.findViewById(R.id.fragment_movie_detail_backdrop);
         lbl_movie_date = view.findViewById(R.id.fragment_movie_detail_date);
+        lbl_movie_tagline = view.findViewById(R.id.fragment_movie_detail_tagline);
+        lbl_movie_vote = view.findViewById(R.id.fragment_movie_detail_allvote);
+        lbl_movie_popularity = view.findViewById(R.id.fragment_movie_detail_popularity);
         rv_logo = view.findViewById(R.id.rv_logo);
         String movieID = getArguments().getString("movieId");
         view_model = new ViewModelProvider(MovieDetailsFragment.this).get(MovieViewModel.class);
@@ -113,11 +117,18 @@ public class MovieDetailsFragment extends Fragment {
             String overview= movies.getOverview();
             String date = movies.getRelease_date();
             String vote = String.valueOf(movies.getVote_average());
+            String allvote = String.valueOf(movies.getVote_count());
+            String popu = String.valueOf(movies.getPopularity());
+            String tag = movies.getTagline();
+
 
             lbl_movie_title.setText(title);
             lbl_movie_description.setText(overview);
-            lbl_movie_date.setText(date);
-            lbl_movie_rate.setText(vote);
+            lbl_movie_date.setText("Popularity : " + popu);
+            lbl_movie_rate.setText("Avg votes : " + vote);
+            lbl_movie_tagline.setText(tag);
+            lbl_movie_popularity.setText(date);
+            lbl_movie_vote.setText("Votes : " +  allvote);
             String img_path = Const.IMG_URL + movies.getPoster_path().toString();
             String img_back = Const.IMG_URL + movies.getBackdrop_path();
             Glide.with(MovieDetailsFragment.this).load(img_path).into(lbl_movie_poster);
